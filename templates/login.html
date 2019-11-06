@@ -1,0 +1,65 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Login Page</title>
+<style>
+        body{
+          background-color: purple;
+           
+        }
+        form{
+            align-content: center;
+            margin-left: 40%;
+            margin-top: 20%;
+           box-sizing: border-box;
+        }
+
+        #input{
+            background-color: red;
+            color: white;
+            margin-left:60px;
+            width: 150px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        #user1{
+            margin-left: 20px;
+           
+        }
+</style>
+
+
+</head>
+<body>
+    
+    <form method="POST" action="">
+        <h1>Login Form</h1>
+            {% csrf_token %}
+
+           <caption>
+       {% if messages%}
+       
+       {% for msg in messages %}
+               
+           <code style="color: white;">{{msg}}</code>
+       {% endfor%}   
+       {% endif %}
+           </caption><br>
+    username:<input type="text" name="username" placeholder="Enter Your Name"  required="" ><br>
+<br>
+   
+    password : <input type="password" name="password" placeholder="Enter Your Name " required="">
+    <br><br>
+    <input type="submit" value="submit" id="input">   
+    <br>
+    <p><a href="{% url 'signup' %}" style="color: white;" target="_blank">Sign Up (Register)</a></p>
+    <p style="margin-left: 200px; margin-top:-33px; "><a href="#" style="color:white;">Forgot password</a></p>       
+    </form>
+
+</body>
+</html>
